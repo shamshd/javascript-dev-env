@@ -2,7 +2,12 @@
   "name": "javascript-development-environment",
   "version": "1.0.0",
   "description": "JavaScript development environment",
-  "scripts": {},
+  "scripts": {
+    "prestart": "node buildScripts/startMessage.js",
+    "start": "npm-run-all --parallel security-check open_src",
+    "open_src": "node buildScripts/srcServer.js",
+    "security-check": "nsp check"
+  },
   "author": "Shams",
   "license": "MIT",
   "dependencies": {},
@@ -27,7 +32,6 @@
     "jsdom": "9.8.0",
     "json-schema-faker": "0.3.6",
     "json-server": "0.8.22",
-    "localtunnel": "1.8.1",
     "mocha": "3.1.2",
     "nock": "8.1.0",
     "npm-run-all": "3.1.1",
